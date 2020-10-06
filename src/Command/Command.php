@@ -21,8 +21,6 @@ class Command extends BaseCommand
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $sf = new SymfonyStyle($input, $output);
-
         $reflectionExtractor = new ReflectionExtractor();
         $phpDocExtractor = new PhpDocExtractor();
         $propertyInfoExtractor = new PropertyInfoExtractor(
@@ -33,7 +31,6 @@ class Command extends BaseCommand
         );
 
         dump($propertyInfoExtractor->getTypes(Foo::class, 'property'));
-        dump($propertyInfoExtractor->getTypes(Bar::class, 'property'));
 
         return 0;
     }
